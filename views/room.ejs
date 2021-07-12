@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet</title>
+    <script>
+      const ROOM_ID = "<%= roomId %>";
+      document.title += " | " + ROOM_ID;
+    </script>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon.svg"
+    />
+
+    <!-- libraries -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script defer src="lib/peerjs.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+
+    <!-- scripts -->
+    <script src="/js/firebaselogin.js"></script>
+    <script src="/js/logout.js"></script>
+    <script src="script.js" defer></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/styles/room.css" />
+  </head>
+  <body>
+    <div class="dark-light">
+      <svg
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+    </div>
+    <div class="app">
+      <div class="wrapper">
+        <div class="main">
+          <div class="main__left">
+            <div class="main__videos">
+              <div id="video-grid"></div>
+            </div>
+            <!-- Main button controls -->
+            <div class="main__controls">
+              <div class="main__controls__block">
+                <div
+                  onclick="muteUnmute()"
+                  class="main__controls__button main__mute_button"
+                >
+                  <i class="fas fa-microphone"></i>
+                  <span>Mute</span>
+                </div>
+                <div
+                  onclick="playStop()"
+                  class="main__controls__button main__video_button"
+                >
+                  <i class="fas fa-video"></i>
+                  <span>Stop Video</span>
+                </div>
+                <div onclick="screenshare()" class="main__controls__button">
+                  <i class="fas fa-photo-video"></i>
+                  <span>ScreenShare</span>
+                </div>
+              </div>
+              <div class="main__controls__block">
+                <div
+                  onclick="window.location.href='/home'"
+                  class="main__controls__button"
+                >
+                  <span class="leave_meeting"
+                    ><a href="/home">Leave Meeting</a></span
+                  >
+                </div>
+              </div>
+              <div class="main__controls__block">
+                <div
+                  onclick="window.location.href='/chat/'+ROOM_ID"
+                  class="main__controls__button"
+                >
+                  <span class="leave_meeting"
+                    ><a onclick="window.location.href='/chat/'+ROOM_ID;"
+                      >Go Back to ChatRoom</a
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- The chat window -->
+          <div class="main__right">
+            <div class="main__header" style="margin-top: 20px">
+              <h4>Chat</h4>
+            </div>
+            <div class="main__chat_window">
+              <ul class="messages"></ul>
+            </div>
+            <div class="main__message_container">
+              <input
+                id="chat_message"
+                type="text"
+                placeholder="Type message here..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- <script src="/js/home.js" defer></script> -->
+</html>

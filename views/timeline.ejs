@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>UNITE | Video conferencing App</title>
+    <meta name="description" content="" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon.svg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon.svg"
+    />
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/timeline.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- The Timeline -->
+
+    <ul class="timeline">
+      <!-- Item 1 -->
+      <li>
+        <div class="direction-r">
+          <div class="flag-wrapper">
+            <span class="flag">Design phase</span>
+            <span class="time-wrapper"><span class="time">Week 1</span></span>
+          </div>
+          <div class="desc">
+            <ul class="desc-list">
+              <li>
+                Researched about WebRTC, and PeerJS and why is NodeJS the best
+                suit for me!
+              </li>
+              <li>
+                My <strong>first prototype</strong> was a Simple application
+                with connection between two people, and had text chat feature.
+              </li>
+              <li>
+                Learnt how to use peerJS and creating a unique ID to connect two
+                people.
+              </li>
+              <li>
+                In the <strong>1st mentor session</strong>, I learnt about
+                various design requirements and how to make the code modular.
+                And also, how to integrate features in an application in an
+                industry environment.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <!-- Item 2 -->
+      <li>
+        <div class="direction-l">
+          <div class="flag-wrapper">
+            <span class="flag">Build phase</span>
+            <span class="time-wrapper"><span class="time">Week 2</span></span>
+          </div>
+          <div class="desc">
+            <ul class="desc-list">
+              <li>
+                The build phase started with
+                <strong>Requirement Specification</strong>.
+              </li>
+              <li>
+                These were the <strong>Functional requirements</strong> for the
+                application:
+                <ul>
+                  <li>Video chat b/w multiple users</li>
+                  <li>Text chat during meet</li>
+                  <li>Google based auth using firebase</li>
+                  <li>Google Calendar API to schedule meet</li>
+                  <li>User friendly interface</li>
+                  <li>Create an interface for user feedbacks</li>
+                </ul>
+              </li>
+              <li>
+                These were the <strong>Non-Functional requirements</strong> for
+                the application:
+                <ul>
+                  <li>
+                    The application be able to accomodate atleast 1000 requests
+                    per minute
+                  </li>
+                  <li>The response time of the app should not exceed 30ms</li>
+                  <li>The firebase auth should be secure</li>
+                  <li>
+                    The application should scheldule meet and send response
+                    within 20ms
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>The second mentor session</strong> was about Architecure
+                and interface design!
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <!-- Item 3 -->
+      <li>
+        <div class="direction-r">
+          <div class="flag-wrapper">
+            <span class="flag">Adopt phase</span>
+            <span class="time-wrapper"><span class="time">Week 3</span></span>
+          </div>
+          <div class="desc">
+            <ul class="desc-list">
+              <li>The <strong>biggest challange</strong></li>
+              <li>
+                After carefull code evaluation, here's how I solved this:
+                <ul>
+                  <li>Build the video call on top of chat room</li>
+                  <li>
+                    Use uuid to generate unique for each room ID, and use same
+                    for chat and video call feature.
+                  </li>
+                  <li>
+                    Persist the chat using MongoDB, as well as keep track of
+                    user's recent room ID
+                  </li>
+                </ul>
+              </li>
+              <li>I was able to implement this feature effectively!</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- Item 4 -->
+      <li>
+        <div class="direction-l">
+          <div class="flag-wrapper">
+            <span class="flag">Deploy and Testing</span>
+            <span class="time-wrapper"><span class="time">Week 4</span></span>
+          </div>
+          <div class="desc">
+            <ul class="desc-list">
+              <li>
+                Use <strong>Heroku</strong> for deployment and try implementing
+                it on <strong>AWS EC2</strong>
+              </li>
+              <li>
+                Evaluate <strong>performance testing</strong> and document the
+                results.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+</html>

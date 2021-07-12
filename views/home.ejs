@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon.svg"
+    />
+    <link rel="stylesheet" href="styles/home.css" />
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="/js/firebaselogin.js"></script>
+    <script src="/js/logout.js"></script>
+  </head>
+
+  <body>
+    <!-- Dark-Light Mode button -->
+    <div class="dark-light">
+      <svg
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+    </div>
+    <div class="app">
+      <!-- Header Division -->
+      <div class="header">
+        <div class="menu-circle"></div>
+        <div class="header-menu">
+          <a class="menu-link is-active" href="#">Home</a>
+        </div>
+        <div class="header-profile">
+          <button
+            class="content-button"
+            onclick="LogoutUser()"
+            style="
+              padding: auto;
+              font-size: 15px;
+              margin-top: 0;
+              padding: 6px 24px;
+            "
+          >
+            Signout
+          </button>
+          <img
+            class="profile-img"
+            id="profile-img"
+            src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="wrapper">
+        <!-- Left side Wrapper -->
+        <div class="left-side">
+          <div class="side-wrapper">
+            <div class="side-menu">
+              <a href="/landing">
+                <img
+                  src="/assets/images/logo/logo-2-home.svg"
+                  alt="Logo"
+                  style="display: block; margin-left: auto; margin-right: auto"
+                />
+              </a>
+            </div>
+            <div class="side-title">User Details</div>
+            <div class="side-menu">
+              <a id="username">Loading...</a>
+              <a id="useremail">Loading...</a>
+            </div>
+          </div>
+          <div class="side-wrapper">
+            <div class="side-title">My Rooms</div>
+            <div class="side-menu" id="user-rooms">Loading...</div>
+            <div class="side-title">Recent rooms</div>
+            <div class="side-menu" id="last-rooms">Loading...</div>
+          </div>
+        </div>
+        <div class="main-container">
+          <div class="main-header">
+            <a class="menu-link-main" href="#">Your Dashboard</a>
+          </div>
+          <div class="content-wrapper">
+            <div class="content-wrapper-header">
+              <div class="content-wrapper-context">
+                <h3 class="img-content">Unite App</h3>
+                <div class="content-text">
+                  Web application, to create chat rooms and join video meetings.
+                  Meet with as much people you wish to! Schedule meeting Google
+                  Calendars. And keep a check on your health with posture bot.
+                </div>
+                <button
+                  class="content-button"
+                  onclick="window.location.href='#'"
+                >
+                  See Demo
+                </button>
+
+                <!-- All popups -->
+                <!-- Popups are grouped with actions so as to keep the order same -->
+
+                <!-- Schedule Meet -->
+                <div class="pop-up">
+                  <div class="pop-up__title">
+                    Schedule Meeting
+                    <svg
+                      class="close"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-x-circle"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M15 9l-6 6M9 9l6 6" />
+                    </svg>
+                  </div>
+                  <div class="pop-up__subtitle">
+                    Google Calendar Meeting Scheduler
+                  </div>
+                  <label for="startday">Select start Date</label>
+                  <input type="datetime-local" id="startday" /><br />
+                  <label for="enddate">Select end Date</label>
+                  <input type="datetime-local" id="endday" /><br />
+                  <label>Enter meeting summary</label>
+                  <input type="text" id="summary" /><br />
+                  <div class="form-group">
+                    <label for="emails">Emails</label> <br />
+                    <input
+                      type="text"
+                      style="width: 100%"
+                      class="form-control"
+                      id="emails"
+                      placeholder="Separate emails by comma"
+                    />
+                  </div>
+                  <div class="content-button-wrapper">
+                    <br />
+                    <button
+                      class="content-button status-button"
+                      type="button"
+                      onclick="SendSchedule()"
+                      id="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <p style="text-align: center; color: azure" id="status"></p>
+                </div>
+
+                <!-- Create room -->
+                <div class="pop-up1">
+                  <div class="pop-up1__title">
+                    Create Room
+                    <svg
+                      class="close1"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-x-circle"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M15 9l-6 6M9 9l6 6" />
+                    </svg>
+                  </div>
+                  <div class="pop-up1__subtitle">
+                    Enter the chat and Invite people
+                  </div>
+                  <label for="room-name">Enter room name</label>
+                  <input
+                    type="text"
+                    id="room-name"
+                    placeholder="Optional (Recommended)"
+                  /><br />
+
+                  <div class="content-button-wrapper">
+                    <br />
+                    <button
+                      class="content-button status-button1"
+                      onclick="createRoom()"
+                      type="button"
+                      id="submitRoomName"
+                      style="margin: auto"
+                    >
+                      Create Room
+                    </button>
+                    <button
+                      class="content-button status-button1"
+                      type="button"
+                      id="enter-room"
+                      style="margin: auto; display: none"
+                    >
+                      Enter Room
+                    </button>
+                    <p
+                      style="
+                        text-align: center;
+                        color: azure;
+                        display: none;
+                        border-radius: 99em;
+                      "
+                      id="room-id"
+                    >
+                      <button
+                        style="
+                          padding: 10px;
+                          background: #5784f5;
+                          color: #fff;
+                          font-size: 18px;
+                          border: none;
+                          outline: none;
+                          border-radius: 10px;
+                          cursor: pointer;
+                        "
+                        id="copy-room-id"
+                      >
+                        <img
+                          src="https://img.icons8.com/ios/20/ffffff/copy.png"
+                        />
+                      </button>
+                    </p>
+                  </div>
+                </div>
+                <!-- Join Room -->
+                <div class="pop-up2">
+                  <div class="pop-up2__title">
+                    Join Room
+                    <svg
+                      class="close2"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-x-circle"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M15 9l-6 6M9 9l6 6" />
+                    </svg>
+                  </div>
+
+                  <!-- Join meet here -->
+                  <div class="pop-up2__subtitle">Enter the chat or Room ID</div>
+                  <label for="meeting-id">Enter room ID</label>
+                  <input type="text" id="meeting-id" /><br />
+                  <div class="content-button-wrapper">
+                    <button
+                      class="content-button status-button2"
+                      onclick="joinMeet()"
+                      type="button"
+                      id="submitRoomName"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <img
+                class="content-wrapper-img"
+                src="https://assets.codepen.io/3364143/glass.png"
+                alt=""
+              />
+            </div>
+            <div class="content-section">
+              <div class="content-section-title">Apps in your plan</div>
+              <div class="apps-card">
+                <div class="app-card">
+                  <span>
+                    <img
+                      id="app-card-img-1"
+                      src="https://img.icons8.com/ios/50/ffffff/video-call.png"
+                      style="border: 3px; padding: 10px"
+                    />
+                    Create Meeting
+                  </span>
+                  <div class="app-card__subtext">Create your own room</div>
+                  <div class="app-card-buttons">
+                    <button class="content-button status-button1">
+                      Create
+                    </button>
+                  </div>
+                </div>
+                <div class="app-card">
+                  <span>
+                    <img
+                      id="app-card-img-2"
+                      src="https://img.icons8.com/ios/50/ffffff/meeting-room.png"
+                      style="border: 3px; padding: 10px"
+                    />
+
+                    Join Meeting
+                  </span>
+                  <div class="app-card__subtext">Join meeting by meet ID</div>
+                  <div class="app-card-buttons">
+                    <button class="content-button status-button2">Join</button>
+                  </div>
+                </div>
+                <div class="app-card">
+                  <span>
+                    <img
+                      id="app-card-img-3"
+                      src="https://img.icons8.com/ios/50/ffffff/calendar--v4.png"
+                      style="border: 3px; padding: 10px"
+                    />
+
+                    Schedule Meeting
+                  </span>
+                  <div class="app-card__subtext">
+                    Schedule with Google Calendar
+                  </div>
+
+                  <div class="app-card-buttons">
+                    <button class="content-button status-button">
+                      Schedule
+                    </button>
+                  </div>
+                </div>
+                <div class="app-card">
+                  <span>
+                    <img
+                      id="app-card-img-4"
+                      src="https://img.icons8.com/ios/64/ffffff/bot.png"
+                      style="border: 3px; padding: 10px"
+                    />
+                    AI Posture Bot
+                  </span>
+                  <div class="app-card__subtext">
+                    AI Based Posture Detection
+                  </div>
+
+                  <div class="app-card-buttons">
+                    <button
+                      class="content-button"
+                      onclick="window.location.href='/aibot'"
+                    >
+                      Monitor Me
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/js/home.js" defer></script>
+</html>

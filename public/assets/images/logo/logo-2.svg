@@ -1,0 +1,58 @@
+<svg width="160" height="68" viewBox="0 0 160 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<g filter="url(#filter0_d)">
+<path d="M80.9883 17.4062V34.8086C80.9766 37.2227 80.2148 39.1973 78.7031 40.7324C77.2031 42.2676 75.1641 43.1289 72.5859 43.3164L71.6895 43.3516C68.8887 43.3516 66.6562 42.5957 64.9922 41.084C63.3281 39.5723 62.4844 37.4922 62.4609 34.8438V17.4062H65.8008V34.7383C65.8008 36.5898 66.3105 38.0312 67.3301 39.0625C68.3496 40.082 69.8027 40.5918 71.6895 40.5918C73.5996 40.5918 75.0586 40.082 76.0664 39.0625C77.0859 38.043 77.5957 36.6074 77.5957 34.7559V17.4062H80.9883ZM105.984 43H102.592L89.707 23.2773V43H86.3145V17.4062H89.707L102.627 37.2168V17.4062H105.984V43ZM115.6 43H112.225V17.4062H115.6V43ZM138.943 20.1836H130.717V43H127.359V20.1836H119.15V17.4062H138.943V20.1836ZM157.207 31.1699H146.115V40.2402H159V43H142.74V17.4062H158.824V20.1836H146.115V28.4102H157.207V31.1699Z" fill="#5F6FFF"/>
+</g>
+<g filter="url(#filter1_d)">
+<circle cx="3.43571" cy="20.7429" r="3.43571" fill="#FB7370"/>
+<circle cx="39.5107" cy="39.6393" r="3.43571" fill="#FB7370"/>
+<circle cx="15.4607" cy="27.6143" r="3.43571" fill="#FB7370"/>
+<circle cx="27.4072" cy="34.125" r="3.43571" fill="#FB7370"/>
+<circle cx="27.4857" cy="20.7429" r="3.43571" fill="#FB7370"/>
+<circle cx="51.5357" cy="46.5107" r="3.43571" fill="#FB7370"/>
+<circle cx="51.4072" cy="21.125" r="3.43571" fill="#FB7370"/>
+<path d="M27.4857 20.7429C27.4857 9.74857 27.4857 7 27.4857 7" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.43571 20.7429C22.6757 9.74857 27.4857 7 27.4857 7" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.4607 27.6143C25.0807 22.1171 27.4857 20.7429 27.4857 20.7429" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.4607 39.6393C25.0807 45.1365 27.4857 46.5107 27.4857 46.5107" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 20.7429C37.1057 26.24 39.5107 27.6143 39.5107 27.6143" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.5107 27.6143C39.5107 37.2343 39.5107 39.6393 39.5107 39.6393" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.4607 27.6143C15.4607 37.2343 15.4607 39.6393 15.4607 39.6393" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.43571 20.7429C22.6757 31.7371 27.4857 34.4857 27.4857 34.4857" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.43571 46.5107C22.6757 36.8907 27.4857 34.4857 27.4857 34.4857" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 34.4857C46.7257 23.4914 51.5357 20.7429 51.5357 20.7429" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 34.4857C46.7257 44.1057 51.5357 46.5107 51.5357 46.5107" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 46.5107C37.1057 41.0136 39.5107 39.6393 39.5107 39.6393" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 60.2536C46.7257 49.2593 51.5357 46.5107 51.5357 46.5107" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 7C46.7257 17.9943 51.5357 20.7429 51.5357 20.7429" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.43571 46.5107C22.6757 57.505 27.4857 60.2536 27.4857 60.2536" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.43573 46.5107C3.43573 25.8964 3.43573 20.7429 3.43573 20.7429" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51.5357 46.5107C51.5357 25.8964 51.5357 20.7429 51.5357 20.7429" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 60.2536C27.4857 49.2593 27.4857 46.5107 27.4857 46.5107" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.4857 46.5107C27.4857 25.8964 27.4857 20.7429 27.4857 20.7429" stroke="#FB7370" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="58.4609" y="17.4062" width="104.539" height="33.9453" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<filter id="filter1_d" x="-4" y="5.63562" width="62.9714" height="63.9824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<clipPath id="clip0">
+<rect width="160" height="68" fill="white"/>
+</clipPath>
+</defs>
+</svg>

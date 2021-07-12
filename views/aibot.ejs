@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moniter Me</title>
+
+    <!-- libraries -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <!-- Model script -->
+    <script type="text/javascript">
+      // More API functions here:
+      // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
+      console.log = () => {};
+      // the link to your model provided by Teachable Machine export panel
+      const URL = "/PoseNetModels/";
+      let model, webcam, ctx, labelContainer, maxPredictions;
+
+      let group = [];
+      let toggle = false;
+
+      async function init() {
+        toggle = true;
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // Note: the pose library adds a tmPose object to your window (window.tmPose)
+
+        model = await tmPose.load(modelURL, metadataURL);
+        // you need to create File objects, like with file input elements (<input type="file" ...>)
+        // const uploadModel = document.getElementById('upload-model');
+        // const uploadWeights = document.getElementById('upload-weights');
+        // const uploadMetadata = document.getElementById('upload-metadata');
+        // model = await tmPose.loadFromFiles(uploadModel.files[0], uploadWeights.files[0], uploadMetadata.files[0])
+        maxPredictions = model.getTotalClasses();
+        console.log(maxPredictions);
+        // Convenience function to setup a webcam
+        let mql = window.matchMedia("(max-width: 570px)");
+        const size = !mql ? window.innerWidth * 0.6 : window.innerHeight * 0.48;
+        const flip = true; // whether to flip the webcam
+        webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append/get elements to the DOM
+        const canvas = document.getElementById("canvas");
+        canvas.width = !mql
+          ? window.innerWidth * 0.5
+          : window.innerHeight * 0.45;
+        canvas.height = !mql
+          ? window.innerWidth * 0.5
+          : window.innerHeight * 0.45;
+        ctx = canvas.getContext("2d");
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+          // and class labels
+          //   labelContainer.appendChild(document.createElement("div"));
+        }
+      }
+
+      async function loop(timestamp) {
+        console.log(timestamp);
+        webcam.update(); // update the webcam frame
+
+        await predict();
+        if (toggle) {
+          window.requestAnimationFrame(loop);
+        }
+      }
+
+      async function predict() {
+        // Prediction #1: run input through posenet
+        // estimatePose can take in an image, video or canvas html element
+        const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+        // Prediction 2: run input through teachable machine classification model
+        const prediction = await model.predict(posenetOutput);
+        // console.log(group)
+        if (group.length < 100) {
+          group.push(prediction);
+        } else {
+          group.shift();
+          group.push(prediction);
+        }
+        checkPosture(group);
+        // console.log(group)
+        for (let i = 0; i < maxPredictions; i++) {
+          const classPrediction =
+            prediction[i].className +
+            ": " +
+            prediction[i].probability.toFixed(2);
+          // labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+
+        // finally draw the poses
+        drawPose(pose);
+      }
+      function notifyMe(message) {
+        // Let's check if the browser supports notifications
+        const startover = function () {
+          // console.log('NOTIFICATION CLICKed')
+          toggle = true;
+          // console.log(toggle)
+          window.requestAnimationFrame(loop);
+          group = [];
+        };
+        if (!("Notification" in window)) {
+          alert("This browser does not support desktop notification");
+        }
+
+        // Let's check whether notification permissions have already been granted
+        else if (Notification.permission === "granted") {
+          // If it's okay let's create a notification
+          var title = "Posture";
+          var icon =
+            "https://homepages.cae.wisc.edu/~ece533/images/airplane.png";
+          var body =
+            message + ". Please sit in correctly and click this notification";
+          var tag = "pose-bot";
+          var notification = new Notification(title, { body, icon, tag });
+        }
+
+        // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then(function (permission) {
+            // If the user accepts, let's create a notification
+            if (permission === "granted") {
+              var notification = new Notification(title, { body, icon, tag });
+            }
+          });
+        }
+
+        notification.onclick = startover;
+        notification.onclose = startover;
+
+        // At last, if the user has denied notifications, and you
+        // want to be respectful there is no need to bother them any more.
+      }
+      function checkPosture(posturegroup) {
+        //group
+        console.log(group);
+        goodposture = (
+          posturegroup.reduce((sum, data) => {
+            return sum + data[0].probability;
+          }, 0) / 100
+        ).toFixed(3);
+        badposture = (
+          posturegroup.reduce((sum, data) => {
+            return sum + data[1].probability;
+          }, 0) / 100
+        ).toFixed(3);
+        nearscreen = (
+          posturegroup.reduce((sum, data) => {
+            return sum + data[2].probability;
+          }, 0) / 100
+        ).toFixed(3);
+
+        // console.log('good: ',goodposture,' bad: ', badposture)
+        // document.getElementById('good').innerHTML = 'Good: ' + goodposture
+        // document.getElementById('bad').innerHTML = 'Bad: ' + badposture
+
+        console.log({ goodposture, badposture, nearscreen });
+
+        if (badposture >= 0.9) {
+          // console.log('bad posture')
+          toggle = false;
+          group = [];
+          notifyMe("Correct your posture");
+        }
+
+        if (nearscreen >= 0.9) {
+          // console.log('bad posture')
+          toggle = false;
+          group = [];
+          notifyMe("get away from screen");
+        }
+      }
+
+      function drawPose(pose) {
+        if (webcam.canvas) {
+          ctx.drawImage(webcam.canvas, 0, 0);
+          // draw the keypoints and skeleton
+          if (pose) {
+            const minPartConfidence = 0.5;
+            tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
+            tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
+          }
+        }
+      }
+    </script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/styles/chatroom.css" />
+  </head>
+  <body>
+    <div class="dark-light">
+      <svg
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+    </div>
+    <div class="back-button" onclick="window.location.href='/home'">
+      <img
+        src="https://img.icons8.com/ios-glyphs/90/ffffff/circled-left.png"
+        style="width: 40px; height: 40px"
+      />
+    </div>
+    <div class="app">
+      <div
+        id="monitor"
+        class="
+          text-center
+          d-flex
+          flex-column
+          justify-content-center
+          align-items-center
+        "
+      >
+        <canvas
+          style="
+            height: 50vh;
+            width: 50vh;
+            background-color: #3ba3c233;
+            border-radius: 50px;
+            margin-top: 10em;
+            margin-bottom: 5em;
+          "
+          id="canvas"
+        ></canvas>
+        <div style="margin-bottom: 10em">
+          <button
+            class="font-weight-bold btn btn-primary px-5 text-light m-2"
+            style="border-radius: 9999px"
+            onclick="init()"
+          >
+            Monitor me.
+          </button>
+          <!-- Button trigger modal -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // To toggle between dark and light theme
+    const toggleButton = document.querySelector(".dark-light");
+
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+    });
+  </script>
+</html>
