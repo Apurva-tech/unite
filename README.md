@@ -17,7 +17,7 @@ using peer-to-peer connections.
 
 <p align="center">
 <a href="https://unite-apurva.herokuapp.com/landing">
-<img src="https://user-images.githubusercontent.com/59837325/125442913-117d084b-6def-49cc-95fc-3f6d23406afc.png" alt="Unite-logo"/>
+<img src="https://user-images.githubusercontent.com/59837325/125489372-57d3ad66-fb25-40f8-8d54-5514cbe4b648.png" alt="Unite-logo"/>
 </a>
 </p>
 
