@@ -58,7 +58,11 @@ using peer-to-peer connections.
 
 5. Video calling & Persistent text chat
    - Chat with your friends, family and professional peers before, during and after the meeting. 
-    
+   - ![image](https://user-images.githubusercontent.com/59837325/125486957-00bbd600-02ea-4f4f-b040-fc5d25db3251.png)
+   - ![image](https://user-images.githubusercontent.com/59837325/125486640-4ff2bdb8-b2ec-40f8-96c1-4dbdae007af3.png)
+   
+   - Screen Share options
+   - ![image](https://user-images.githubusercontent.com/59837325/125486807-1b603597-eb1d-4758-9cb2-d1d34f8462c4.png)
 
 6. Schedule Meeting 
    - Schedule Meeting with Google Calendar and invite people by just entering their email addresses and the app schedules a meet for you with a unique meeting ID as well!
@@ -95,7 +99,10 @@ using peer-to-peer connections.
 
 ## Useful Links
 
-- [Deployed Website](https://changerole.akshatvg.com)
+- [Deployed Website](https://unite-apurva.herokuapp.com/landing)
+- [Demo Video]()
+- [Sprint Document](https://docs.google.com/presentation/d/11k8pLJPEV-XJwxIX4ysW9fKmHqFEZHcUWizFcFyVsns/edit?usp=sharing)
+- [How to test this app?]()
 
 ## Need help?
 
