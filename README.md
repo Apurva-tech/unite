@@ -73,72 +73,34 @@ using peer-to-peer connections.
    - Keep your health in check and use this functionality with and without even being in a meeting
    - ![image](https://user-images.githubusercontent.com/59837325/125442368-2b7b4202-9f07-4d9a-9122-69b221a03ef9.png)
 
+## Tech stack
+[![GitHub top language](https://img.shields.io/github/languages/top/Apurva-tech/unite?logo=javascript&style=social)](https://github.com/Apurva-tech/unite/)
 
+<p align="left"> <a href="https://getbootstrap.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://www.tensorflow.org" target="_blank"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a> </p>
+
+
+## Instructions
+
+1. `git clone https://github.com/Apurva-tech/unite.git` 
+2. `cd ./unite`
+3. Install node dependencies 
+   - `npm install`
+4. Replace firebase API keys with your configurations
+5. Create a `.env` file 
+   - Add relevant credentials
+   - `cp .env.example .env` 
+5. `npm run dev`
+6. The app is now running at http://localhost:3030/landing 
 
 ## Useful Links
 
 - [Deployed Website](https://changerole.akshatvg.com)
-- [Agora.io Website](https://www.agora.io/)
-- [SDK NG Documentation](https://agoraio-community.github.io/AgoraWebSDK-NG/api/en/index.html)
-- [Sample Video Call App](https://github.com/AgoraIO-Community/AgoraWebSDK-NG/tree/master/Demo/basicVideoCall)
-- [Agora RTM SDK Documentation](https://docs.agora.io/en/Real-time-Messaging/API%20Reference/RTM_web/v1.0.0/index.html)
-- [RTM Quickstart Guide](https://docs.agora.io/en/Real-time-Messaging/messaging_web?platform=Web)
-- [Guided Blog](https://medium.com/@akshatvg/change-role-of-remote-host-in-a-live-streaming-web-app-8c5b3e0a651f)
-
-## Requirements
-
-[![GitHub top language](https://img.shields.io/github/languages/top/Apurva-tech/unite?logo=javascript&style=social)](https://github.com/Apurva-tech/unite/)
-
-The source code of this project is written in **`HTML`, `CSS`, `JavaScript`, `Agora RTM SDK` and the `Agora SDK NG`**. So, you would require the Agora SDKs and a valid App Id to run this project.
-
-## Instructions
-
-[![chrome](https://img.shields.io/badge/Open-index.html-lightgrey.svg?logo=google-chrome&style=popout&logoColor=red)](https://changerole.akshatvg.com)
-
-Extract the folder and run `index.html`
-
 
 ## Need help?
-
 
 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/apurva866/) 
 
 [![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/mind.wrapper/) [![Twitter](https://img.shields.io/badge/Twitter-follow-blue.svg?logo=twitter&logoColor=white)](https://twitter.com/mindwrapper) [![Medium](https://img.shields.io/badge/Medium-follow-black.svg?logo=medium&logoColor=white)](https://medium.com/@apurva866)
-
-
-```bash
-
-
-
- _____ _                 _     __   __            
-|_   _| |               | |    \ \ / /            
-  | | | |__   __ _ _ __ | | __  \ V /___  _   _   
-  | | | '_ \ / _` | '_ \| |/ /   \ // _ \| | | |  
-  | | | | | | (_| | | | |   <    | | (_) | |_| |  
-  \_/ |_| |_|\__,_|_| |_|_|\_\   \_/\___/ \__,_|  
-                                                  
-                                                  
-______                                            
-|  ___|                                           
-| |_ ___  _ __                                    
-|  _/ _ \| '__|                                   
-| || (_) | |                                      
-\_| \___/|_|                                      
-                                                  
-                                                  
-______      _               _   _               _ 
-| ___ \    (_)             | | | |             | |
-| |_/ / ___ _ _ __   __ _  | |_| | ___ _ __ ___| |
-| ___ \/ _ \ | '_ \ / _` | |  _  |/ _ \ '__/ _ \ |
-| |_/ /  __/ | | | | (_| | | | | |  __/ | |  __/_|
-\____/ \___|_|_| |_|\__, | \_| |_/\___|_|  \___(_)
-                     __/ |                        
-                    |___/                         
-
- 
-
-
-```
 
 ---------
 
