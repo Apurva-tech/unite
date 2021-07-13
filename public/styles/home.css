@@ -116,7 +116,7 @@ img {
   content: url(https://img.icons8.com/ios/50/000000/calendar--v4.png);
 }
 .light-mode .app-card #app-card-img-4 {
-  content: url(https://img.icons8.com/ios/64/000000/bot.png);
+  content: url(https://img.icons8.com/ios/50/000000/bot.png);
 }
 body.light-mode:before {
   content: "";
@@ -976,7 +976,7 @@ input {
     width: calc(50% - 20px);
   }
   .app-card:last-child {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-left: 0px;
   }
 }
