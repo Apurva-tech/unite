@@ -21,7 +21,7 @@ using peer-to-peer connections.
 </a>
 </p>
 
-[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](#) 
+[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://youtu.be/OKKK1GOnlIU) 
 
 ## Features and Interfaces
 
@@ -111,7 +111,7 @@ using peer-to-peer connections.
 ## Useful Links
 
 - [Deployed Website](https://unite-apurva.herokuapp.com/landing)
-- [Demo Video]()
+- [Demo Video](https://youtu.be/OKKK1GOnlIU)
 - [Sprint Document](https://docs.google.com/presentation/d/11k8pLJPEV-XJwxIX4ysW9fKmHqFEZHcUWizFcFyVsns/edit?usp=sharing)
 - [Design Document](https://docs.google.com/document/d/1IJcEbbhsbQna-tgcnfV_9_RhXQi4SURlrl3-0HypArE/edit?usp=sharing)
 
