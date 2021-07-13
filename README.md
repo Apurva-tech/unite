@@ -87,10 +87,11 @@ using peer-to-peer connections.
 ## Points to remember while testing the app
 
 1. Allow **permissions** for camera and mic
-2. Make sure the **URL** is starting with https
-3. While **scheduling a meet** make sure the start and end date follow a logical sequence or else it’ll show an error. 
-4. While testing the **Posture** bot, allow permissions for the camera and allow **notifications**, and **REFRESH** the page for changes to take effect. 
-5. Wait for the model to analyze, and check for **notifications** 
+2. In case any **user is not broadcasted** it is probably due to server overload, **REFRESH** the window to solve this. 
+3. Make sure the **URL** is starting with https
+4. While **scheduling a meet** make sure the start and end date follow a logical sequence or else it’ll show an error. 
+5. While testing the **Posture** bot, allow permissions for the camera and allow **notifications**, and **REFRESH** the page for changes to take effect. 
+6. Wait for the model to analyze, and check for **notifications** 
 
 ## Instructions
 
