@@ -1,12 +1,15 @@
+// socket.io client initialization
 const socket = io("/");
+// Js method to get ID
 const videoGrid = document.getElementById("video-grid");
+// To establish new WebRTC connection using PeerJS
 const myPeer = new Peer();
 let myVideoStream;
 const myVideo = document.createElement("video");
 myVideo.muted = true;
 let peers = {},
   currentPeer = [];
-
+// Persist the data of last few rooms visited on DB
 addRoomsToUser();
 
 const toggleButton = document.querySelector(".dark-light");
@@ -42,7 +45,7 @@ function linkify(inputText) {
 
   return replacedText;
 }
-
+// Browser API to get user video & audio
 navigator.mediaDevices
   .getUserMedia({
     video: true,
