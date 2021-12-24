@@ -13,7 +13,7 @@
 [![Watchers](	https://img.shields.io/github/watchers/Apurva-tech/unite?label=Watch&style=for-the-badge)](https://github.com/Apurva-tech/unite/) 
 
 Video conferencing solutions with `Unite`
-using peer-to-peer connections.
+using peer-to-peer connection.
 
 <p align="center">
 <a href="https://unite-apurva.herokuapp.com/landing">
