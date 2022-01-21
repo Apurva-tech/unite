@@ -50,7 +50,7 @@ body {
   overflow-x: hidden;
 
   font-family: var(--body-font);
-  background-image: url("/assets/images/logo/7btrrd.gif");
+  background-image: url("/assets/images/logo/macos-bg.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
