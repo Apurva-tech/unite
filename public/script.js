@@ -9,6 +9,7 @@ const myVideo = document.createElement("video");
 myVideo.muted = true;
 let peers = {},
   currentPeer = [];
+
 // Persist the data of last few rooms visited on DB
 addRoomsToUser();
 
@@ -53,7 +54,9 @@ navigator.mediaDevices
   })
   .then((stream) => {
     myVideoStream = stream;
+    // Add video stream to video element
     addVideoStream(myVideo, stream);
+    // Event of myPeer object
     myPeer.on("call", (call) => {
       call.answer(stream);
       currentPeer.push(call.peerConnection);
@@ -69,18 +72,20 @@ navigator.mediaDevices
     socket.on("user-connected", (userId) => {
       connectToNewUser(userId, stream);
     });
-    // input value
+    // Input text value
     let text = $("input");
-    // when press enter send message
+    // When press enter send message
     $("html").keydown(function (e) {
       if (e.which == 13 && text.val().length !== 0) {
         const user = getUser();
         console.log(user);
         // let authId = user.uuid;
+        // Emit event on the connected socket connection
         socket.emit("message", { message: text.val(), user });
         text.val("");
       }
     });
+    // Callback function for user and message to reflect on the interface
     socket.on("createMessage", ({ message, user }) => {
       console.log(message);
       $("ul").append(
@@ -92,6 +97,7 @@ navigator.mediaDevices
     });
   });
 
+  // Remove peers once the connection is deleted
 socket.on("user-disconnected", (userId) => {
   if (peers[userId]) {
     peers[userId].close();
@@ -101,6 +107,7 @@ socket.on("user-disconnected", (userId) => {
   }
 });
 
+// Fetch and display previous messages from the DB onto the application
 myPeer.on("open", async (id) => {
   socket.emit("join-room", ROOM_ID, id);
   let resp = await fetch(`${window.location.origin}/message/get`, {
